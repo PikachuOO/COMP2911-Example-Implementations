@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class ArrayListSet<E> implements Set<E>, Iterable {
+public class ArrayListSet<E> implements Set<E>, Iterable<E> {
     private ArrayList<E> elements;
     public static final int NOT_FOUND = -1;
 
@@ -61,10 +61,8 @@ public class ArrayListSet<E> implements Set<E>, Iterable {
         return (this.elements.size() == 0);
     }
 
-    @Override
     public Iterator<E> iterator() {
-        // TODO
-        return null;
+        return this.elements.iterator();
     }
     
     @Override
@@ -89,7 +87,25 @@ public class ArrayListSet<E> implements Set<E>, Iterable {
     
     @Override
     public Object[] toArray() {
-        // TODO
-        return null;
+        Object[] newArray = new Object[this.elements.size()];
+        int counter = 0;
+        for (E e : this.elements) {
+            newArray[counter] = (Object)e;
+            counter++;
+        }
+        return newArray;
+    }
+
+    public void printSet() {
+        int counter = 0;
+        System.out.format("[");
+        for (E e : this.elements) {
+            if (counter == this.elements.size() - 1) {
+                System.out.format("%s", ((Object)e).toString());
+            } else {
+                System.out.format("%s,", ((Object)e).toString());
+            }
+        }
+        System.out.println("]");
     }
 }

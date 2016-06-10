@@ -1,6 +1,6 @@
 import java.util.Iterator;
 
-public interface Set<E> {
+public interface Set<E> extends Iterable<E> {
        boolean          add(E e);
        void             clear();
        Object           clone();
@@ -8,7 +8,6 @@ public interface Set<E> {
        E                get(int index);
        int              indexOf(Object o);
        boolean          isEmpty();
-       Iterator<E>      iterator();
        E                remove(int index);
        boolean          remove(Object o);
        E                set(int index, E element);
