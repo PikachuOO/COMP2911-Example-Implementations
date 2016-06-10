@@ -18,10 +18,11 @@ public class Main {
         // }
 
         System.out.format("Testing comparisons...\n");
+        testingSingles(numbers);
         testingComparisons(numbers);
     }
     
-    private static boolean testingComparisons(Set<Integer> s) {
+    private static void testingComparisons(Set<Integer> s) {
         Set<Integer> higherNumbers = new ArrayListSet<Integer>();
         int intersectionCounter = 0;
         for (Integer n : s) {
@@ -38,13 +39,34 @@ public class Main {
         System.out.format("\t=>Test 1...");
         comparingSuite.test(higherNumbers, 10, false, 5);
 
-        for (Integer outer : s) {
-            higherNumbers.add(outer);
+        for (Integer x : s) {
+            higherNumbers.add(x);
         }
         
         System.out.format("\t=>Test 2...");
         comparingSuite.test(higherNumbers, 10, false, 10);
+        
+        for (Integer x : higherNumbers) {
+            s.add(x);
+        }
 
-        return true;
+        System.out.format("\t=>Test 3...");
+        comparingSuite.test(higherNumbers, 15, false, 15);
+        
+        higherNumbers.clear();
+
+        System.out.format("\t=>Test 4...");
+        comparingSuite.test(higherNumbers, 15, true, 0);
+
+        s.clear();
+
+        System.out.format("\t=>Test 5...");
+        comparingSuite.test(higherNumbers, 0, true, 0);
+    }
+
+    public static void testingSingles(Set<Integer> s) {
+        SetTestingSuite singleTesting = new SetSingleTestingSuite();
+        singleTesting.test(s, 10, false, 0);
+        System.out.format("Index of 3 is %d, should be %d\n", s.indexOf(new Integer(3)), 3);
     }
 }
