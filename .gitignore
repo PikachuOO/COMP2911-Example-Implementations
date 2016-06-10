@@ -2,6 +2,7 @@
 /pattern_implementation_images/
 
 *.class
+*.swp
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
