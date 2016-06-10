@@ -3,8 +3,7 @@ import java.util.Iterator;
 
 public class Main {
     public static void main (String[] args) {
-        // Iterator evenNumberInterator = new EvenIterator();
-        ArrayList<Integer> numbers = new ArrayList<Integer>();
+        Set<Integer> numbers = new ArrayListSet<Integer>();
         // adding large amount of numbers
         for (int x = 0; x < 10; x++) {
             numbers.add(x);
