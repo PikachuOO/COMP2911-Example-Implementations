@@ -1,6 +1,5 @@
 #!/bin/sh
 
-javac *.java
+javac *.java -Xlint:unchecked
 java Main
-
 rm *.class
