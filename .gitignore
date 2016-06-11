@@ -1,5 +1,8 @@
 # Folders
 /pattern_implementation_images/
+bounded_queue/bounded_queue_example_code/
+
+*.zip
 
 *.class
 *.swp
